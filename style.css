@@ -10,9 +10,12 @@ body{
 }
 
 #welcome-text{
-    color: rgb(168, 30, 181);
-    text-shadow: 0px 0px 20px rgb(168, 30, 181);
-  
+    color: rgb(204, 243, 250);
+}
+
+#name{
+    color: rgb(43, 255, 255);
+     text-shadow: 0px 0px 20px rgb(43, 255, 255);
 }
 
 
@@ -32,33 +35,50 @@ nav{
 }
 
 nav a{
+    position: relative;
     display: inline-block;
     color: white;
     padding: 8px 16px;
     text-decoration: none;
     font-size: 20px;
-    
-
+    transition: color 0.3s ease;
 }
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 80%;
+  height: 2px;
+  background-color: rgb(43, 255, 255);
+  transition: transform 0.3s ease;
+}
+
 nav a:hover{
-    text-shadow: 0px 0px 10px white;
-    transition: 0.3s;
-    
+      color: rgb(43, 255, 255);
+      text-shadow: 0px 0px 10px rgb(43, 255, 255);
+}
+
+nav a:hover::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 .hero h1{
     font-size: 3.5rem;
-    color: #222;
-    margin-bottom: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 10px solid rgb(168, 30, 181);
-    width: 0;
-    animation: typing 1.7s steps(30, end) forwards, blink 0.7s step-end 1.7s infinite;
+  color: #222;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 10px solid rgb(168, 30, 181);
+  width: 0;
+  animation: typing 1.7s steps(30, end) forwards, blink 0.7s step-end 1.7s infinite;
 }
-@keyframes typing{
-    from{width: 0}
-    to {width: 47%;}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 23ch; } /* roughly fits the text length */
 }
 @keyframes blink{
     50% {border-color: transparent;}
