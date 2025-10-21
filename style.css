@@ -1,7 +1,25 @@
+body{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #000000;
+    
+}
+
+#welcome-text{
+    color: rgb(168, 30, 181);
+    text-shadow: 0px 0px 20px rgb(168, 30, 181);
+  
+}
+
+
 nav{
     height: fit-content;
     width: 100%;
-    background-color: rgb(53, 115, 178);
+    
 }
 
 #nav-links{
@@ -9,7 +27,7 @@ nav{
     justify-content: flex-end;
     align-items: center;
     gap: 50px;
-    margin-right: 20px;
+    margin-right: 50px;
    height: 50px;
 }
 
@@ -18,11 +36,14 @@ nav a{
     color: white;
     padding: 8px 16px;
     text-decoration: none;
+    font-size: 20px;
+    
 
 }
 nav a:hover{
     text-shadow: 0px 0px 10px white;
     transition: 0.3s;
+    
 }
 
 .hero h1{
@@ -31,13 +52,13 @@ nav a:hover{
     margin-bottom: 10px;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 10px solid rgb(53, 115, 178);
+    border-right: 10px solid rgb(168, 30, 181);
     width: 0;
     animation: typing 1.7s steps(30, end) forwards, blink 0.7s step-end 1.7s infinite;
 }
 @keyframes typing{
     from{width: 0}
-    to {width: 72%;}
+    to {width: 47%;}
 }
 @keyframes blink{
     50% {border-color: transparent;}
