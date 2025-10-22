@@ -15,7 +15,7 @@
 </script>
 
 <body>
-    <div id="starfield"></div>
+    <canvas id="starCanvas"></canvas>
 
     
     <!-- Navigation Bar -->
@@ -46,25 +46,36 @@
 
     <!-- About Me Section -->
      <section id="about">
-        <h2>About Me</h2>
-        <p>I'm a create developer who's passionate about building apps that feel greate to use. 
-            I focus on Javascript, UI design, and gaining more skills in the frontend development field.
-        </p>
+        <h2 class="title">About Me</h2>
+        <div class="about-cards">
+  <div class="card">
+    <h3>School</h3>
+    <p>Towson University</p>
+  </div>
+  <div class="card">
+    <h3>Graduation</h3>
+    <p>May 2027</p>
+  </div>
+  <div class="card">
+    <h3>Statement</h3>
+    <p>Passionate Front-End Developer who loves building creative interfaces.</p>
+  </div>
+</div>
      </section>
      <!-- About Me Section [END]-->
 
      <!-- Projects Section -->
       <section id="projects">
-        <h2>Projects</h2>
-        <div id="projects-list">
-            <!--Projects go here-->
-        </div>
-      </section>
+  <h2 class="title">Projects</h2>
+  <div class="projects-cards" id="projects-cards">
+    <!-- Project cards will be injected here by JS -->
+  </div>
+</section>
      <!-- Projects Section [END]-->
 
      <!-- Contact Section -->
      <section id="contact">
-        <h2>Contact</h2>
+        <h2 class="title">Contact</h2>
         <p>Let's connect! Reach out through:</p>
         <ul>
             <li>Email: <a href="mailto:abdul76985@gmail.com">abdul76985@gmail.com</a></li>
