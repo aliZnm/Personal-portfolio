@@ -1,38 +1,35 @@
 html {
   scroll-behavior: smooth;
+}
 
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #000000;
+  min-width: 800px;
 }
-body{
-    margin: 0;
-    padding: 0;
-    color: white;
-    font-family: "Courier Prime", monospace;
-    font-weight: 400;
-    font-style: normal;
-    background-color: #000000;
-    min-width: 800px;
-    
-}
+
 #starCanvas {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* behind everything */
+  z-index: -1;
   background: radial-gradient(circle at center, #000 60%, #010a0a);
 }
 
-
-
-
-#welcome-text{
-    color: rgb(255, 255, 255);
+#welcome-text {
+  color: rgb(255, 255, 255);
 }
 
-#name{
-    color: rgb(43, 255, 255);
-     text-shadow: 0px 0px 20px rgb(43, 255, 255);
+#name {
+  color: rgb(43, 255, 255);
+  text-shadow: 0px 0px 20px rgb(43, 255, 255);
 }
 
 .title {
@@ -47,17 +44,12 @@ body{
 .title::after {
   content: "";
   position: absolute;
-  bottom: 4px; /* closer to text */
+  bottom: 4px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   height: 2px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgb(43, 255, 255),
-    transparent
-  );
+  background: linear-gradient(to right, transparent, rgb(43, 255, 255), transparent);
 }
 
 .about-cards {
@@ -74,45 +66,43 @@ body{
   border-radius: 6px;
   min-width: 200px;
   height: fit-content;
-  
 }
+
 .card h3 {
   margin: 0 0 5px 0;
   color: rgb(43, 255, 255);
 }
+
 .card p {
   margin: 0;
   color: rgb(204, 243, 250);
-  max-width: 220px;  /* slightly shorter lines */
-  line-height: 1.5;  /* more readable spacing */
+  max-width: 220px;
+  line-height: 1.5;
   word-wrap: break-word;
 }
 
-
-
-nav{
-    height: fit-content;
-    width: 100%;
-    
+nav {
+  height: fit-content;
+  width: 100%;
 }
 
-#nav-links{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 50px;
-    margin-right: 50px;
-   height: 50px;
+#nav-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 50px;
+  margin-right: 50px;
+  height: 50px;
 }
 
-nav a{
-    position: relative;
-    display: inline-block;
-    color: white;
-    padding: 8px 16px;
-    text-decoration: none;
-    font-size: 20px;
-    transition: color 0.3s ease;
+nav a {
+  position: relative;
+  display: inline-block;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s ease;
 }
 
 nav a::after {
@@ -124,12 +114,7 @@ nav a::after {
   transform-origin: center;
   width: 80%;
   height: 2px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgb(43, 255, 255),
-    transparent
-  );
+  background: linear-gradient(to right, transparent, rgb(43, 255, 255), transparent);
   transition: transform 0.3s ease;
 }
 
@@ -157,9 +142,11 @@ nav a:hover::after {
   from { width: 0; }
   to { width: 100%; }
 }
+
 @keyframes blink {
   50% { border-color: transparent; }
 }
+
 @keyframes fadeIn {
   to { opacity: 1; }
 }
@@ -167,17 +154,17 @@ nav a:hover::after {
 .hero {
   height: 100vh;
   display: flex;
-  align-items: flex-start;   /* aligns content to top */
+  align-items: flex-start;
   justify-content: flex-start;
   padding-left: 4%;
-  padding-top: 10%;          /* moves content down from top, adjust as needed */
+  padding-top: 10%;
   box-sizing: border-box;
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
-  gap: 25px; /* adds clean spacing between elements */
+  gap: 25px;
 }
 
 .hero p {
@@ -185,80 +172,88 @@ nav a:hover::after {
   color: rgb(204, 243, 250);
   margin: 0;
   opacity: 0;
-  animation: fadeIn 0.8s ease 1.6s forwards; /* was 1.7s delay, now 1s */
+  animation: fadeIn 0.8s ease 1.6s forwards;
 }
-
 
 .scroll-btn {
-    position: relative;
-    font-size: 18px;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: 1.5px solid rgb(43, 255, 255);
-    color: rgb(43, 255, 255);
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 0;
-    line-height: 1;
-    margin-top: 15px;
-    opacity: 0; /* hidden initially */
-    transition: opacity 0.5s ease;
-}
-.scroll-btn.show {
-    opacity: 1; /* fade in after description */
+  position: relative;
+  font-size: 18px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1.5px solid rgb(43, 255, 255);
+  color: rgb(43, 255, 255);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0;
+  line-height: 1;
+  margin-top: 15px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
+.scroll-btn.show {
+  opacity: 1;
+}
 
 .scroll-btn:hover {
-    background-color: rgb(43, 255, 255);
-    color: black;
-    box-shadow: 0px 0px 10px rgb(43, 255, 255);
-    transform: scale(1.08);
+  background-color: rgb(43, 255, 255);
+  color: black;
+  box-shadow: 0px 0px 10px rgb(43, 255, 255);
+  transform: scale(1.08);
 }
+
 .arrow {
-    position: absolute;
-    font-size: 24px;
-    color: rgb(43, 255, 255);
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease, opacity 0.3s ease;
+  position: absolute;
+  font-size: 24px;
+  color: rgb(43, 255, 255);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease, opacity 0.3s ease;
 }
 
 .scroll-btn:hover .arrow {
-    color: black; /* hover effect */
+  color: black;
 }
+
 .arrow.fall {
-    transform: translate(-50%, -50%) scale(1.3); /* bigger */
-    text-shadow: 0 0 15px rgb(43, 255, 255); /* bright */
+  transform: translate(-50%, -50%) scale(1.3);
+  text-shadow: 0 0 15px rgb(43, 255, 255);
 }
+
 .arrow.hover-black:hover {
-    color: black; /* normal hover effect */
+  color: black;
 }
 
 @keyframes arrowDrive {
   0% { top: var(--start-top); left: var(--start-left); opacity: 1; }
-  100% { top: 90vh; opacity: 0; } /* moves down screen and fades out */
-}
-#description-text{
-    margin-top: 15px;
-    margin-bottom: 15px;
+  100% { top: 90vh; opacity: 0; }
 }
 
-
-
-#projects{
-    margin-top: 130px;
+#description-text {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
+
+#projects {
+  margin-top: 130px;
+}
+
 .projects-cards {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 20px;
+}
+
+.projects-cards a,
+.projects-cards a * {
+  text-decoration: none !important;
+  color: inherit;
 }
 
 .project-card {
@@ -289,9 +284,9 @@ nav a:hover::after {
   margin: 0 0 10px 0;
   color: rgb(204, 243, 250);
   line-height: 1.4;
+  text-decoration: none;
 }
 
-/* Icon row */
 .project-icons {
   display: flex;
   gap: 5px;
@@ -302,15 +297,16 @@ nav a:hover::after {
   width: 24px;
   height: 24px;
   object-fit: contain;
-  /* removed filter glow */
 }
 
-#contact{
-    margin-top: 350px;
+#contact {
+  margin-top: 350px;
 }
-#contact-text{
-    font-size: 18px;
+
+#contact-text {
+  font-size: 18px;
 }
+
 .contact-icons {
   display: flex;
   gap: 15px;
@@ -318,19 +314,24 @@ nav a:hover::after {
 }
 
 .contact-icons a {
-  display: inline-block;
-  width: 32px;
-  height: 32px;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: cyan;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
 }
 
-.contact-icons img {
-  width: 100%;
-  height: 100%;
+.contact-icons a img {
+  width: 60%;
+  height: 60%;
   object-fit: contain;
-  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.contact-icons a:hover img {
+.contact-icons a:hover {
   transform: scale(1.2);
-  opacity: 0.8;
+  opacity: 0.9;
+  box-shadow: 0 0 10px cyan;
 }
