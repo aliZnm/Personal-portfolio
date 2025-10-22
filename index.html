@@ -9,7 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <title>Personal Protfolio</title>
 </head>
+<script>
+  history.scrollRestoration = "manual";
+  window.scrollTo(0, 0);
+</script>
+
 <body>
+    <div id="starfield"></div>
+
     
     <!-- Navigation Bar -->
     <header>
@@ -30,7 +37,7 @@
         <div class="hero-content">
             <h1 id="welcome-text">Hello, My name is <span id="name">Abdulrahman Ali</span></h1>
             <p id="description-text">Front-End Developer | Building Creative Interfaces.</p>
-            <a href="#projects" class="btn scroll-btn" id="scroll-btn">↓</a>
+            <a href="#projects" class="btn scroll-btn" id="scroll-btn"><span class="arrow">↓</span></a>
         </div>
         
     </section>

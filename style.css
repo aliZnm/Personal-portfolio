@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+
+}
 body{
     margin: 0;
     padding: 0;
@@ -6,8 +10,40 @@ body{
     font-weight: 400;
     font-style: normal;
     background-color: #000000;
+    min-width: 800px;
     
 }
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* behind everything */
+  background: radial-gradient(circle at center, #000 60%, #010a0a);
+}
+
+.star {
+  position: absolute;
+  color: rgb(43, 255, 255);
+  opacity: 0.7;
+  font-size: 10px;
+  text-shadow: 0 0 10px rgb(43, 255, 255);
+  animation: floatStar linear infinite;
+}
+
+@keyframes floatStar {
+  from {
+    transform: translateY(0) translateX(0);
+    opacity: 0.9;
+  }
+  to {
+    transform: translateY(-200px) translateX(30px);
+    opacity: 0.2;
+  }
+}
+
 
 #welcome-text{
     color: rgb(204, 243, 250);
@@ -96,9 +132,10 @@ nav a:hover::after {
 .hero {
   height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;   /* aligns content to top */
   justify-content: flex-start;
-  padding-left: 8%;
+  padding-left: 4%;
+  padding-top: 10%;          /* moves content down from top, adjust as needed */
   box-sizing: border-box;
 }
 
@@ -113,36 +150,65 @@ nav a:hover::after {
   color: rgb(204, 243, 250);
   margin: 0;
   opacity: 0;
-  animation: fadeIn 0.8s ease 1.7s forwards;
+  animation: fadeIn 0.8s ease 1.6s forwards; /* was 1.7s delay, now 1s */
 }
+
 
 .scroll-btn {
-  font-size: 18px;
-  width: 45px;             /* slightly larger for better balance */
-  height: 45px;            /* must match width exactly */
-  border-radius: 50%;      /* perfect circle */
-  border: 1.5px solid rgb(43, 255, 255);
-  color: rgb(43, 255, 255);
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  padding: 0;              /* prevent distortion */
-  line-height: 1;          /* keeps text vertically centered */
-  opacity: 0;
-  animation: fadeIn 0.8s ease 2.2s forwards;
-  transition: all 0.3s ease;
-  
+    position: relative;
+    font-size: 18px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1.5px solid rgb(43, 255, 255);
+    color: rgb(43, 255, 255);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0;
+    line-height: 1;
+    margin-top: 15px;
+    opacity: 0; /* hidden initially */
+    transition: opacity 0.5s ease;
 }
+.scroll-btn.show {
+    opacity: 1; /* fade in after description */
+}
+
 
 .scroll-btn:hover {
-  background-color: rgb(43, 255, 255);
-  color: black;
-  box-shadow: 0px 0px 10px rgb(43, 255, 255);
-  transform: scale(1.08);
+    background-color: rgb(43, 255, 255);
+    color: black;
+    box-shadow: 0px 0px 10px rgb(43, 255, 255);
+    transform: scale(1.08);
+}
+.arrow {
+    position: absolute;
+    font-size: 24px;
+    color: rgb(43, 255, 255);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease, opacity 0.3s ease;
 }
 
+.scroll-btn:hover .arrow {
+    color: black; /* hover effect */
+}
+.arrow.fall {
+    transform: translate(-50%, -50%) scale(1.3); /* bigger */
+    text-shadow: 0 0 15px rgb(43, 255, 255); /* bright */
+}
+.arrow.hover-black:hover {
+    color: black; /* normal hover effect */
+}
+
+@keyframes arrowDrive {
+  0% { top: var(--start-top); left: var(--start-left); opacity: 1; }
+  100% { top: 90vh; opacity: 0; } /* moves down screen and fades out */
+}
 #description-text{
     margin-top: 15px;
     margin-bottom: 15px;
