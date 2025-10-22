@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Start at top instantly
   window.scrollTo(0, 0);
 
+  // ---------------- Scroll Button ----------------
   const scrollBtn = document.getElementById("scroll-btn");
   const arrow = scrollBtn.querySelector(".arrow");
   const targetSection = document.querySelector("#projects");
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const duration = 1000;
     const startTime = performance.now();
 
-    // Animate arrow fade-out immediately (no vertical travel)
+    // Animate arrow fade-out
     arrow.style.transition = "none";
     arrow.style.transform = "translate(-50%, -50%) scale(1.3)";
     arrow.style.textShadow = "0 0 15px rgb(43, 255, 255)";
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (progress < 1) {
         requestAnimationFrame(animateScroll);
       } else {
-        // Instantly reset arrow (hidden, ready for next click)
+        // Reset arrow
         arrow.style.transition = "none";
         arrow.style.transform = "translate(-50%, -50%) scale(1)";
         arrow.style.textShadow = "none";
@@ -51,22 +52,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     requestAnimationFrame(animateScroll);
   });
-});
 
-//floating stars:
-// Neon floating dots that react to scroll
-document.addEventListener("DOMContentLoaded", () => {
+  // ---------------- Floating Stars ----------------
   const canvas = document.getElementById("starCanvas");
   const ctx = canvas.getContext("2d");
 
   let width = (canvas.width = window.innerWidth);
   let height = (canvas.height = window.innerHeight);
-  const numStars = 120; // number of dots
+  const numStars = 120;
   const stars = [];
 
-  const cyan = "rgb(43, 255, 255)";
-
-  // Create stars
   for (let i = 0; i < numStars; i++) {
     stars.push({
       x: Math.random() * width,
@@ -78,35 +73,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Handle resize
   window.addEventListener("resize", () => {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
   });
 
-  // Track scroll for slight movement effect
   let scrollOffset = 0;
   window.addEventListener("scroll", () => {
-    scrollOffset = window.scrollY * 0.05; // sensitivity
+    scrollOffset = window.scrollY * 0.05;
   });
 
-  function animate() {
+  function animateStars() {
     ctx.clearRect(0, 0, width, height);
 
     for (const s of stars) {
-      // Move stars gently upward and sideways
       s.y -= s.speed;
       s.x += Math.sin(Date.now() / 2000 + s.y / 50) * 0.05;
 
-      // Wrap around
       if (s.y < -10) s.y = height + 10;
       if (s.x > width + 10) s.x = -10;
       if (s.x < -10) s.x = width + 10;
 
-      // Apply scroll offset (gives parallax feel)
       const yOffset = s.y - scrollOffset;
 
-      // Draw glowing dot
       const gradient = ctx.createRadialGradient(s.x, yOffset, 0, s.x, yOffset, s.glow);
       gradient.addColorStop(0, `rgba(43, 255, 255, ${s.alpha})`);
       gradient.addColorStop(1, "transparent");
@@ -117,60 +106,80 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.fill();
     }
 
-    requestAnimationFrame(animate);
+    requestAnimationFrame(animateStars);
   }
 
-  animate();
-});
+  animateStars();
 
-//Project Cards
-document.addEventListener("DOMContentLoaded", () => {
+  // ---------------- Projects ----------------
   const projects = [
     {
       title: "Portfolio Website",
-      description: "My personal portfolio built with HTML, CSS, and JS.",
-      icons: ["icons/html.png", "icons/css.png", "icons/js.png"],
+      description: "My personal portfolio built with HTML, CSS, JS.",
+      languages: ["html.png", "css.png", "js.png"],
+      link: "https://github.com/username/portfolio"
     },
     {
       title: "Weather App",
-      description: "Shows real-time weather using OpenWeather API.",
-      icons: ["icons/js.png", "icons/api.png"],
-    },
-    {
-      title: "Task Manager",
-      description: "A simple to-do list app with localStorage support.",
-      icons: ["icons/js.png", "icons/html.png", "icons/css.png"],
-    },
-    // Add more projects here
+      description: "A weather app using OpenWeather API.",
+      languages: ["html.png", "css.png", "js.png"],
+      link: "https://github.com/username/weather-app"
+    }
   ];
 
-  const container = document.getElementById("projects-cards");
+  const projectsContainer = document.querySelector(".projects-cards");
 
-  projects.forEach((project) => {
+  projects.forEach(proj => {
+    const a = document.createElement("a");
+    a.href = proj.link;
+    a.target = "_blank";
+    a.style.textDecoration = "none";
+
     const card = document.createElement("div");
-    card.className = "project-card";
+    card.classList.add("project-card");
 
     const title = document.createElement("h3");
-    title.textContent = project.title;
+    title.textContent = proj.title;
 
     const desc = document.createElement("p");
-    desc.textContent = project.description;
+    desc.textContent = proj.description;
 
-    // Create icon row
-    const iconRow = document.createElement("div");
-    iconRow.className = "project-icons";
-
-    project.icons.forEach((iconPath) => {
+    const icons = document.createElement("div");
+    icons.classList.add("project-icons");
+    proj.languages.forEach(lang => {
       const img = document.createElement("img");
-      img.src = iconPath;
-      img.alt = "tech icon";
-      iconRow.appendChild(img);
+      img.src = `images/${lang}`;
+      img.alt = lang.split(".")[0];
+      icons.appendChild(img);
     });
 
-    card.appendChild(title);
-    card.appendChild(desc);
-    card.appendChild(iconRow);
+    card.append(title, desc, icons);
+    a.appendChild(card);
+    projectsContainer.appendChild(a);
+  });
 
-    container.appendChild(card);
+  // ---------------- Contact Icons ----------------
+  const contacts = [
+    { name: "Email", link: "mailto:youremail@example.com", icon: "email.png" },
+    { name: "LinkedIn", link: "https://www.linkedin.com/in/yourprofile", icon: "linkedin.png" },
+    { name: "GitHub", link: "https://github.com/yourusername", icon: "github.png" },
+    { name: "Discord", link: "https://discord.com/users/yourid", icon: "discord.png" }
+  ];
+
+  const contactContainer = document.querySelector(".contact-icons");
+  contactContainer.innerHTML = ""; // clear if anything exists
+
+  contacts.forEach(c => {
+    const a = document.createElement("a");
+    a.href = c.link;
+    a.target = "_blank";
+    a.title = c.name;
+
+    const img = document.createElement("img");
+    img.src = `images/${c.icon}`;
+    img.alt = c.name;
+
+    a.appendChild(img);
+    contactContainer.appendChild(a);
   });
 });
