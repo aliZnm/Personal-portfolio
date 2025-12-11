@@ -60,10 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     animateStars();
 
-    // Projects
+    // Add projects here:
     const projects = [
-        {title:"Portfolio Website", description:"My personal portfolio built with HTML, CSS, JS.", languages:["html.png","css.png","js.png"], link:"#"},
-        {title:"Weather App", description:"A weather app using OpenWeather API.", languages:["html.png","css.png","js.png"], link:"#"}
+        {title: "Receipt Tracker", description: "----", languages: ["html.png", "css.png", "javascript.png", "react.png"], link: "https://github.com/aliZnm/receipt-tracker"}
     ];
     const projectsContainer = document.querySelector(".projects-cards");
     projects.forEach(proj => {
@@ -86,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Contact Icons
     const contacts = [
-        {name:"Email", link:"abdul76985@gmail.com", icon:"email.png"},
+        {name:"Email", link:"mailto:abdul76985@gmail.com", icon:"email.png"},
         {name:"LinkedIn", link:"https://www.linkedin.com/in/yourprofile", icon:"linkedin.png"},
         {name:"GitHub", link:"https://github.com/yourusername", icon:"github.png"},
         {name:"Discord", link:"https://discord.com/users/yourid", icon:"discord.png"}
