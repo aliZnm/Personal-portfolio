@@ -36,6 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let scrollOffset = 0;
     window.addEventListener("scroll", () => scrollOffset = window.scrollY * 0.05);
+    document.querySelector('a[href="#home"]').addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
 
     function animateStars() {
         ctx.clearRect(0, 0, width, height);
