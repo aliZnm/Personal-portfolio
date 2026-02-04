@@ -65,10 +65,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     animateStars();
 
+
+
     // Add projects here:
     const projects = [
-        {title: "Receipt Tracker", description: "----", languages: ["html.png", "css.png", "javascript.png", "react.png"], link: "https://github.com/aliZnm/receipt-tracker"}
+        {title: "Receipt Tracker", description: "----", languages: ["html.png", "css.png", "javascript.png", "react.png"], link: "https://github.com/aliZnm/receipt-tracker"},
+        {title: "YourCart", description: "----", languages: ["html.png", "css.png", "javascript.png", "react.png"], link: "https://github.com/aliZnm/yourcart"},
     ];
+
+
+
+
+
+
     const projectsContainer = document.querySelector(".projects-cards");
     projects.forEach(proj => {
         const a = document.createElement("a");
