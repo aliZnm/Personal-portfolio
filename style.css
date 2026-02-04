@@ -345,3 +345,7 @@ nav a:hover::after {
   opacity: 0.9;
   box-shadow: 0 0 10px cyan;
 }
+
+.content-sections{
+margin-left: 30px;
+}
