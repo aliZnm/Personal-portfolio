@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Add projects here:
     const projects = [
-        {title: "Receipt Tracker", description: "----", languages: ["html.png", "css.png", "javascript.png", "react.png"], link: "https://github.com/aliZnm/receipt-tracker"},
-        {title: "YourCart", description: "----", languages: ["html.png", "css.png", "javascript.png", "react.png"], link: "https://github.com/aliZnm/yourcart"},
+        {title: "Receipt Tracker", description: "Receipt Tracker is a full-stack React web application that allows users to securely store and manage their receipts in one place. Users can authenticate with Firebase, upload receipt images, and create, edit, or delete receipt entries that are safely stored in Firestore and Firebase Storage.", languages: ["html.png", "css.png", "javascript.png", "react.png"], link: "https://github.com/aliZnm/receipt-tracker"},
+        {title: "YourCart", description: "YourCart is a simple web app that helps users track product prices and stay on top of changes over time. The goal of this project is to make price monitoring easy, fast, and accessible from any device. It focuses on a clean UI, smooth user experience, and practical functionality for everyday use.", languages: ["html.png", "css.png", "javascript.png", "react.png"], link: "https://price-tracker-jgtg.vercel.app/"},
     ];
 
 
@@ -100,9 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Contact Icons
     const contacts = [
         {name:"Email", link:"mailto:abdul76985@gmail.com", icon:"email.png"},
-        {name:"LinkedIn", link:"https://www.linkedin.com/in/yourprofile", icon:"linkedin.png"},
-        {name:"GitHub", link:"https://github.com/yourusername", icon:"github.png"},
-        {name:"Discord", link:"https://discord.com/users/yourid", icon:"discord.png"}
+        {name:"GitHub", link:"https://github.com/aliZnme", icon:"github.png"},
     ];
     const contactContainer = document.querySelector(".contact-icons");
     contacts.forEach(c => {
