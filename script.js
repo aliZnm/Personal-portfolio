@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Add projects here:
     const projects = [
-        {title: "Receipt Tracker", description: "Receipt Tracker is a full-stack React web application that allows users to securely store and manage their receipts in one place. Users can authenticate with Firebase, upload receipt images, and create, edit, or delete receipt entries that are safely stored in Firestore and Firebase Storage.", languages: ["html.png", "css.png", "javascript.png", "react.png"], link: "https://github.com/aliZnm/receipt-tracker"},
-        {title: "YourCart", description: "YourCart is a simple web app that helps users track product prices and stay on top of changes over time. The goal of this project is to make price monitoring easy, fast, and accessible from any device. It focuses on a clean UI, smooth user experience, and practical functionality for everyday use.", languages: ["html.png", "css.png", "javascript.png", "react.png"], link: "https://price-tracker-jgtg.vercel.app/"},
+        {title: "Receipt Tracker", description: "Full-stack React app that lets users upload, store, and manage receipts securely using Firebase authentication and cloud storage.", tech: "React, JavaScript, Firebase, Vite", languages: ["html.png", "css.png", "javascript.png", "react.png"], link: "https://github.com/aliZnm/receipt-tracker"},
+        {title: "YourCart", description: "YourCart is a simple web app that helps users track product prices and stay on top of changes over time. The goal of this project is to make price monitoring easy, fast, and accessible from any device. It focuses on a clean UI, smooth user experience, and practical functionality for everyday use.", tech: "React, JavaScript, Firebase, Vite, Vercel", languages: ["html.png", "css.png", "javascript.png", "react.png"], link: "https://price-tracker-jgtg.vercel.app/"},
     ];
 
 
@@ -82,17 +82,24 @@ document.addEventListener("DOMContentLoaded", () => {
     projects.forEach(proj => {
         const a = document.createElement("a");
         a.href = proj.link; a.target="_blank";
-        const card = document.createElement("div"); card.classList.add("project-card");
-        const title = document.createElement("h3"); title.textContent = proj.title;
-        const desc = document.createElement("p"); desc.textContent = proj.description;
-        const icons = document.createElement("div"); icons.classList.add("project-icons");
+        const card = document.createElement("div"); 
+        card.classList.add("project-card");
+        const title = document.createElement("h3"); 
+        title.textContent = proj.title;
+        const tech = document.createElement("p");
+        tech.classList.add("tech-stack");
+        tech.textContent = "Tech Stack: " + proj.tech;
+        const desc = document.createElement("p"); 
+        desc.textContent = proj.description;
+        const icons = document.createElement("div"); 
+        icons.classList.add("project-icons");
         proj.languages.forEach(lang => {
             const img = document.createElement("img");
             img.src = `images/${lang}`;
             img.alt = lang.split(".")[0];
             icons.appendChild(img);
         });
-        card.append(title, desc, icons);
+        card.append(title, desc, tech, icons);
         a.appendChild(card);
         projectsContainer.appendChild(a);
     });
